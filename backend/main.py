@@ -183,6 +183,9 @@ def parse_resume(resume_text):
     resume = Resume(**data)
     return resume
 
+resume_text = read_pdf(BASE_DIR / "subhanker_resume.pdf")
+parsed_resume_data = parse_resume(resume_text)
+
 # main # ------------------------------------------------------------------------------------------------------------------------------------------------------
 @app.get("/")
 def home():
@@ -191,8 +194,9 @@ def home():
 @app.post("/chat")
 
 
-resume_text = read_pdf(BASE_DIR / "subhanker_resume.pdf")
-parsed_resume_data = parse_resume(resume_text)
+
+
+
 
 def chat(request: ChatReq):
     
