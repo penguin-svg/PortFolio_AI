@@ -1,0 +1,26 @@
+[project]
+name = "mini-project2"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Subhanker kumar", email = "subhanker264@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.141.1",
+    "groq>=1.6.0",
+    "pydantic>=2.13.4",
+    "pylance>=10.0.0",
+    "pypdf>=6.16.2",
+    "python-docx>=1.2.0",
+    "python-dotenv>=1.2.3",
+    "uvicorn>=0.52.4",
+]
+
+[project.scripts]
+mini-project2 = "mini_project2:main"
+
+[build-system]
+requires = ["uv_build>=0.12.3,<0.13.0"]
+build-backend = "uv_build"

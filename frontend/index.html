@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ResumeAI — Smart Resume Chat Assistant</title>
+    <meta name="description" content="Ask questions about a candidate's resume and get instant AI-powered answers. An intelligent HR interview assistant." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+    <!-- Animated background orbs -->
+    <div class="bg-orbs" aria-hidden="true">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header" id="app-header">
+            <div class="header-left">
+                <div class="logo" id="logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                        <rect width="32" height="32" rx="8" fill="url(#logo-gradient)" />
+                        <path d="M10 22V10h4.5c1.3 0 2.3.35 3 1.05.7.7 1.05 1.55 1.05 2.55 0 .75-.2 1.4-.6 1.95-.4.55-.95.9-1.65 1.1l2.7 5.35h-2.5l-2.4-5H12.5v5H10zm2.5-7h2c.6 0 1.05-.17 1.38-.5.32-.34.48-.78.48-1.3s-.16-.96-.48-1.28c-.33-.33-.78-.5-1.38-.5h-2v3.58z" fill="white"/>
+                        <defs>
+                            <linearGradient id="logo-gradient" x1="0" y1="0" x2="32" y2="32">
+                                <stop stop-color="#6366f1"/>
+                                <stop offset="1" stop-color="#a855f7"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <h1>ResumeAI</h1>
+                </div>
+                <span class="badge">AI-Powered</span>
+            </div>
+            <div class="header-right">
+                <div class="status-indicator" id="status-indicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Online</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Chat Area -->
+        <main class="chat-area" id="chat-area">
+            <!-- Welcome Screen -->
+            <div class="welcome-screen" id="welcome-screen">
+                <div class="welcome-icon">
+                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                        <circle cx="32" cy="32" r="30" stroke="url(#welcome-gradient)" stroke-width="2" fill="none" opacity="0.3"/>
+                        <circle cx="32" cy="32" r="20" stroke="url(#welcome-gradient)" stroke-width="2" fill="none" opacity="0.6"/>
+                        <path d="M24 34l4 4 12-12" stroke="url(#welcome-gradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                            <linearGradient id="welcome-gradient" x1="0" y1="0" x2="64" y2="64">
+                                <stop stop-color="#6366f1"/>
+                                <stop offset="1" stop-color="#a855f7"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <h2>Welcome to ResumeAI</h2>
+                <p>Ask anything about the candidate's resume — skills, experience, education, projects and more.</p>
+                <div class="suggestion-chips" id="suggestion-chips">
+                    <button class="chip" data-question="What are the candidate's top skills?">
+                        <span class="chip-icon">🛠️</span> Top Skills
+                    </button>
+                    <button class="chip" data-question="Summarize the candidate's work experience.">
+                        <span class="chip-icon">💼</span> Work Experience
+                    </button>
+                    <button class="chip" data-question="What is the candidate's educational background?">
+                        <span class="chip-icon">🎓</span> Education
+                    </button>
+                    <button class="chip" data-question="What projects has the candidate worked on?">
+                        <span class="chip-icon">🚀</span> Projects
+                    </button>
+                    <button class="chip" data-question="Does the candidate have any certifications?">
+                        <span class="chip-icon">📜</span> Certifications
+                    </button>
+                    <button class="chip" data-question="Give me a brief overview of this candidate.">
+                        <span class="chip-icon">👤</span> Overview
+                    </button>
+                </div>
+            </div>
+
+            <!-- Messages Container -->
+            <div class="messages-container" id="messages-container"></div>
+        </main>
+
+        <!-- Input Area -->
+        <footer class="input-area" id="input-area">
+            <form class="input-form" id="chat-form" autocomplete="off">
+                <div class="input-wrapper" id="input-wrapper">
+                    <textarea
+                        id="chat-input"
+                        placeholder="Ask a question about the resume..."
+                        rows="1"
+                        aria-label="Type your question"
+                        maxlength="2000"
+                    ></textarea>
+                    <button type="submit" class="send-btn" id="send-btn" aria-label="Send message" disabled>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M3 10L17 3L10 17L9 11L3 10Z" fill="currentColor" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <p class="input-hint">Press <kbd>Enter</kbd> to send · <kbd>Shift + Enter</kbd> for new line</p>
+            </form>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
