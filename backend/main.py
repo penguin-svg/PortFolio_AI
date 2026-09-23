@@ -190,11 +190,14 @@ def home():
 
 @app.post("/chat")
 
+
+resume_text = read_pdf(BASE_DIR / "subhanker_resume.pdf")
+parsed_resume_data = parse_resume(resume_text)
+
 def chat(request: ChatReq):
-    resume_text = read_pdf(Path("subhanker_resume.pdf"))
-    resume=parse_resume(resume_text)
+    
     return StreamingResponse(
-        AskChat(request.question, resume),
+        AskChat(request.question, parsed_resume_data),
         media_type="text/plain"
     )
     
