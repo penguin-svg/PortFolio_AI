@@ -189,9 +189,10 @@ def home():
     return FileResponse(FRONTEND_DIR / "index.html")
 
 @app.post("/chat")
+@app.post("/api/chat")
 
 def chat(request: ChatReq):
-    resume_text = read_pdf(Path("subhanker_resume.pdf"))
+    resume_text = read_pdf(Path(__file__).resolve().parent / "subhanker_resume.pdf")
     resume=parse_resume(resume_text)
     return StreamingResponse(
         AskChat(request.question, resume),
